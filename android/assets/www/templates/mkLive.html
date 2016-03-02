@@ -1,0 +1,53 @@
+<ion-view cache-view="false" hide-tabs="true">
+	<ion-nav-title>
+           {{mkLive.title}}
+    </ion-nav-title>
+    <ion-content>
+		<video style="width:100%;height:auto;margin-top:0px;" id="mkVideo"  autoplay controls loop>
+		  <source src="{{mkLive.live_src}}">
+		</video>
+        <div class="button-bar button-mk" style="margin-top:-6px;margin-bottom:-6px;width:100%;">
+            <a ng-class="mkFirstTab" class="button-mk" ng-click="setIndex(0);">直播介绍</a>
+            <a ng-class="mkSecTab" ng-click="setIndex(1);">讨论区</a>
+        </div>
+        
+        <div class="list"  ng-show="selection == 'first'">
+            
+            <div class="item item-divider">
+                主治医师:&nbsp;&nbsp;&nbsp;&nbsp;{{mkLive.surgeon}}
+            </div>
+            <div class="item item-text-wrap" ng-show="selection == 'first'">
+                病例:&nbsp;&nbsp;&nbsp;&nbsp;{{mkLive.description}}
+            </div>
+            
+        </div>
+        
+        <div class="list"  ng-show="selection == 'second'">
+            <div class="list">
+                <a ng-repeat="mkcomment in mkComments | orderBy:'-id'" class="item item-avatar" href="#">
+					<img data-ng-src="http://medku.com{{mkcomment.author.avatar}}" data-placeholder-img="profile_large">
+                        <div class="row mk-sub-font2">
+                            <div class="col col-20">{{mkcomment.author.realname}}</div>
+                            <div class="col col-20"></div>
+                            <div class="col col">{{mkcomment.updated_at}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">{{mkcomment.content}}</div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+                        </a>
+            </div>
+        </div>
+        
+        
+    </ion-content>
+    <div class="bar bar-footer bar-stable" ng-show="selection == 'second'">
+                    <label class="item-input-wrapper" style="background-color:transparent;">
+                        <input type="text" placeholder="发表下你的真知灼见..."  size="50" ng-model='mkCommentContent'>
+                    </label>
+                    <button class="button button-small" ng-click="addComment();">
+                        发表
+                    </button>
+    </div>
+</ion-view>

@@ -1,0 +1,59 @@
+<ion-view view-title="视频" hide-footer-bar="true" hide-tabs="true">
+  <ion-content>
+
+    <div class="row">
+      <label class="item item-input item-select col">
+        <div class="input-label">专业</div>
+	    <select ng-model="selectedTagItem1" ng-options="dept.id as dept.title for dept in deptList" 
+		ng-change="updateClassify1()">
+	      <option></option>
+	    </select>
+      </label>
+
+      <label class="item item-input item-select col">
+        <div class="input-label">标签</div>
+	    <select ng-model="selectedTagItem2" ng-options="tag.id as tag.title for tag in tagList"  
+		ng-change="updateClassify2()">
+	      <option></option>
+	    </select>
+      </label>
+
+      <label class="item item-input item-select col">
+        <div class="input-label">类别</div>
+	    <select ng-model="selectedTagItem3" ng-options="classify.id as classify.title for classify in classifyList"  
+		ng-change="updateClassify3();">
+	    </select>
+      </label>
+    </div>
+
+    <ion-list ng-repeat="video in videos">
+      <ion-item class="item-thumbnail-left" href="#tab/video/{{video.id}}">
+        <img ng-src="{{video.cover}}">
+        <div style="padding-left: 35px; color: darkgray;">
+          <h2>{{video.title}}</h2>
+          <div class="row mk-sub-font">
+            <div class="col">
+              <i class="icon icon-left ion-ios-person-outline"></i>
+              <span class="text">{{video.author_name}}</span>
+            </div>
+          </div>
+          <div class="row mk-sub-font">
+              <div class="col">
+                  <i class="icon icon-left ion-ios-eye-outline"></i>
+                  <span class="text">{{video.view_count}}</span>
+              </div>
+              <div class="col">
+                  <i class="icon icon-left ion-ios-chatbubble-outline"></i>
+                  <span class="text">{{video.comment_count}}</span>
+              </div>
+              <div class="col">
+                  <i class="icon icon-left ion-ios-heart-outline"></i>
+                  <span class="text">{{video.favorite_count}}</span>
+              </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+	
+  </ion-content>
+</ion-view>

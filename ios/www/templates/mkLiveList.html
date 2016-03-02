@@ -1,0 +1,31 @@
+<ion-view title="直播列表" class="gray" hide-tabs="true">
+  <ion-content>
+  
+	<div class="list">
+
+
+     <a class="item item-thumbnail-left" ng-repeat="mkLive in mkLiveList" href="#tab/mkLive/{{mkLive.id}}">
+		<img data-ng-src="http://medku.com{{mkLive.cover}}" data-placeholder-img="profile_large">
+             <span class="mk-head-font">{{mkLive.title}}</span>
+             <p>
+             <div class="row mk-sub-font">
+                 <div class="col col-33">
+                     <i class="icon icon-left ion-ios-person-outline"></i>
+                     <span class="text">{{mkLive.surgeon}}</span>
+                 </div>
+                 <div class="col col-33">
+                     <i class="icon icon-left ion-ios-book-outline"></i>
+                     <span class="text">{{mkLive.view_count}}</span>
+                 </div>
+                 <div class="col col-33">
+                     <i class="icon icon-left ion-ios-chatbubble-outline"></i>
+                     <span class="text">{{mkLive.comment_count}}</span>
+                 </div>
+             </div>
+             </p>
+             </a>
+
+	</div>
+
+  </ion-content>
+</ion-view>

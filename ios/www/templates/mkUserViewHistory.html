@@ -1,0 +1,34 @@
+<ion-view view-title="我的浏览记录" hide-footer-bar="true" hide-tabs="true">
+  <ion-content>
+
+    <ion-list ng-repeat="fav in mkMyViewHistory">
+      <ion-item class="item-thumbnail-left" href="#video2/{{fav.video.id}}">
+        <img ng-src="{{fav.video.cover}}">
+        <div style="padding-left: 35px; color: darkgray;">
+          <h2>{{fav.video.title}}</h2>
+          <div class="row mk-sub-font">
+            <div class="col">
+              <i class="icon icon-left ion-ios-person-outline"></i>
+              <span class="text">{{fav.video.author_name}}</span>
+            </div>
+          </div>
+          <div class="row mk-sub-font">
+              <div class="col">
+                  <i class="icon icon-left ion-ios-eye-outline"></i>
+                  <span class="text">{{fav.video.view_count}}</span>
+              </div>
+              <div class="col">
+                  <i class="icon icon-left ion-ios-chatbubble-outline"></i>
+                  <span class="text">{{fav.video.comment_count}}</span>
+              </div>
+              <div class="col">
+                  <i class="icon icon-left ion-ios-heart-outline"></i>
+                  <span class="text">{{fav.video.favorite_count}}</span>
+              </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+	
+  </ion-content>
+</ion-view>

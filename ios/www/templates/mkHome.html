@@ -1,0 +1,213 @@
+<form>
+    <ion-view hide-nav-bar="true">
+        <ion-header-bar align-title="middle" class="bar-mk">
+            <div class="home-circle-share-scan"  ng-click="mkScanBar();">
+                <i class="col icon ion-qr-scanner vertical-align"></i>
+            </div>
+            <label class="item item-input item-input-wrapper mk-search">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="搜索视频..." ng-model="mkAllKeyword" id="mkSearchField"
+                    ng-keyup="mkCurrentKeyword=$event.keyCode;mkHomeSearch(mkAllKeyword,mkCurrentKeyword);">
+                    </label>
+            
+            <div class="home-circle-share-scan" ng-click="mkShareApp();">
+                <i class="col icon ion-ios-upload-outline vertical-align"></i>
+            </div>
+        </ion-header-bar>
+        
+        <ion-content>
+            
+            <ion-refresher
+                pulling-text="正在更新..."
+                on-refresh="doRefresh()">
+            </ion-refresher>
+            
+            <ion-slide-box does-continue="true" auto-play="true">
+                <ion-slide>
+                    <div class="box blue"  ng-click="openTab(1);"><img width="100%" height="100%" src="img/2-1.jpg" /></div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="box yellow" ng-click="openTab(2);"><img width="100%"  height="100%" src="img/2-2.jpg" /></div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="box yellow" ng-click="openTab(3);"><img width="100%"  height="100%" src="img/2-3.jpg" /></div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="box yellow" ng-click="openTab(5);"><img width="100%"  height="100%" src="img/2-4.jpg" /></div>
+                </ion-slide>
+            </ion-slide-box>
+            
+            
+            <div class="row">
+                <div class="col mk-home-col">
+                    <div class="list list-inset mk_profile_list" ng-click="openTab(5);">
+                        <div class="home-circle-other">
+                            <i class="col icon ion-ios-videocam-outline vertical-align"></i></a>
+                        </div>
+                        <div class="item mk_profile_item_title">
+                            {{liveColumn}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col mk-home-col">
+                    <div class="list list-inset mk_profile_list" ng-click="openTab(1);">
+                        <div class="home-circle-red">
+                            <i class="col icon ion-ios-film-outline vertical-align"></i></a>
+                        </div>
+                        <div class="item mk_profile_item_title">
+                            {{videoColumn}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col mk-home-col">
+                    <div class="list list-inset mk_profile_list"  ng-click="openTab(2);">
+                        <div class="home-circle-green">
+                            <i class="col icon ion-ios-chatboxes-outline vertical-align"></i>
+                        </div>
+                        <div class="item mk_profile_item_title">
+                            {{topicColumn}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col mk-home-col">
+                    <div class="list list-inset mk_profile_list"  ng-click="openTab(3);">
+                        <div class="home-circle-purple">
+                            <i class="col icon ion-ios-medkit-outline vertical-align"></i>
+                        </div>
+                        <div class="item mk_profile_item_title">
+                            {{doctorColumn}}
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <ion-item class="item-divider mk-home-title">
+                {{liveColumn}}
+            </ion-item>
+            
+            <div class="list" style="margin-bottom:0;">
+                <a class="item item-thumbnail-left" ng-repeat="mkLive in mkLiveList" href="#tab/mkLive/{{mkLive.id}}">
+					<img data-ng-src="http://medku.com{{mkLive.cover}}" data-placeholder-img="profile_large">
+                        <span class="mk-head-font">{{mkLive.title}}</span>
+                        <p>
+                        <div class="row mk-sub-font">
+                            <div class="col col-33">
+                                <i class="icon icon-left ion-ios-person-outline"></i>
+                                <span class="text">{{mkLive.surgeon}}</span>
+                            </div>
+                            <div class="col col-33">
+                                <i class="icon icon-left ion-ios-book-outline"></i>
+                                <span class="text">{{mkLive.view_count}}</span>
+                            </div>
+                            <div class="col col-33">
+                                <i class="icon icon-left ion-ios-chatbubble-outline"></i>
+                                <span class="text">{{mkLive.comment_count}}</span>
+                            </div>
+                        </div>
+                        </p>
+                        </a>
+            </div>
+            
+            <div class="row mk-sub-font" ng-click="openTab(5);">
+                <div class="col col-offset-33">{{mkMore}}{{liveColumn}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-chevron-right icon-accessory"></i></div>
+            </div>
+			
+			
+            <ion-item class="item-divider mk-home-title" ng-click="openTab(1);">
+                {{videoColumn}}
+            </ion-item>
+            
+            <div class="list" style="margin-bottom:0;">
+                <a class="item item-thumbnail-left" ng-repeat="video in recommendVideo" href="#tab/video/{{video.id}}">
+                    <img src="{{video.cover}}">
+                        <span class="mk-head-font">{{video.title}}</span>
+                        <p>
+                        <div class="row mk-sub-font">
+                            <div class="col col-33">
+                                <i class="icon icon-left ion-ios-person-outline"></i>
+                                <span class="text">{{video.author_name}}</span>
+                            </div>
+                            <div class="col col-33">
+                                <i class="icon icon-left ion-ios-book-outline"></i>
+                                <span class="text">{{video.view_count}}</span>
+                            </div>
+                            <div class="col col-33">
+                                <i class="icon icon-left ion-ios-chatbubble-outline"></i>
+                                <span class="text">{{video.comment_count}}</span>
+                            </div>
+                        </div>
+                        </p>
+                        </a>
+            </div>
+            
+            <div class="row mk-sub-font" ng-click="openTab(1);">
+                <div class="col col-offset-33">{{mkMore}} {{videoColumn}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-chevron-right icon-accessory"></i></div>
+            </div>
+            
+            <ion-item class="item-divider mk-home-title" ng-click="openTab(2);">
+                {{topicColumn}}
+            </ion-item>
+            
+            <div class="list" style="margin-bottom:0;">
+                
+                <a class="item item-thumbnail-left" ng-repeat="topic in recommendTopic" href="#/tab/topic/{{topic.topicId}}">
+                    <img src="http://medku.com{{topic.cover}}">
+                        <span class="mk-head-font">{{topic.title}}</span>
+                        <p>
+                        <div class="row mk-sub-font">
+                            <div class="col col-67">
+                                <i class="icon icon-left ion-ios-person-outline"></i>
+                                <span class="text">{{topic.editor}}</span>
+                            </div>
+                            <div class="col">
+                                <i class="icon icon-left ion-ios-book-outline"></i>
+                                <span class="text">{{topic.view_count}}</span>
+                            </div>
+                        </div>
+                        </p>
+                        </a>
+            </div>
+            
+            
+            <div class="row mk-sub-font" ng-click="openTab(2);">
+                <div class="col col-offset-33">{{mkMore}} {{topicColumn}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-chevron-right icon-accessory"></i></div>
+            </div>
+            
+            <ion-item class="item-divider mk-profile-list-font" ng-click="openTab(3);">
+                {{doctorColumn}}
+            </ion-item>
+            
+            <div class="list" style="margin-bottom:0;">
+                
+                <a class="item item-avatar" ng-repeat="user in recommendUser" href="#tab/doctor/{{user.id}}">
+                    <img data-ng-src="http://medku.com{{user.avatar}}" data-placeholder-img="profile_large">
+                        <span class="mk-head-font">{{user.realname}}</span>
+                        <p>
+                        <div class="row mk-sub-font">
+                            <div class="col col-33">
+                                <i class="icon icon-left ion-ios-medkit-outline"></i>
+                                <span class="text">{{user.title}}</span>
+                            </div>
+                            <div class="col col-67">
+                                <i class="icon icon-left ion-ios-location-outline"></i>
+                                <span class="text">
+                                    {{user.hospital}}
+                                </span>
+                            </div>
+                        </div>
+                        </p>
+                        </a>
+            </div>
+            
+            <div class="row mk-sub-font" ng-click="openTab(3);">
+                <div class="col col-offset-33">{{mkMore}} {{doctorColumn}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-chevron-right icon-accessory"></i></div>
+            </div>
+            
+            <div class="row" style="height:40px;">
+                <div class="col col-offset-33">&nbsp;&nbsp;</div>
+            </div>
+            
+        </ion-content>
+    </ion-view>
+</form>

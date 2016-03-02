@@ -1,0 +1,65 @@
+<ion-modal-view hide-tabs="true">
+	<ion-nav-title>
+           {{video.title}}
+    </ion-nav-title>
+    <ion-content class="has-header">
+        
+        <div class="row">
+            <iframe class="cc-video" ng-src="{{trustSrc(videoFullPath)}}"></iframe>
+        </div>
+        
+        
+        <div class="list">
+            <div class="item item-body mk-sub-font mk-no-vertical-padding">
+                
+                <div class="row">
+                    <div class="col"><i class="icon ion-ios-star-outline"></i>加入收藏</div>
+                    <div class="col"><i class="icon ion-ios-heart-outline"></i> {{video.favorite_count}}</div>
+                    <div class="col"><i class="icon ion-ios-glasses-outline"></i> {{video.view_count}}</div>
+                </div>
+                
+            </div>
+            
+            <div class="item item-divider">
+ 
+            </div>
+            
+            <div class="item item-avatar">
+                <img src="{{video.cover}}">
+                    <h2>{{video.author_name}}</h2>
+                    <p>
+                    <div class="row mk-sub-font">
+                        <div class="col">{{video.author.title}}</div>
+                        <div class="col">{{video.hospital}}</div>
+                        <div class="col"></div>
+                    </div>
+                    </p>
+                    </div>
+            
+            <div class="item item-body mk-sub-font">
+                {{video.description}}
+                <p>
+                
+                </p>
+            </div>
+            
+        </div>
+        
+        
+        
+        
+        <ion-item class="item-divider">最新评论</ion-item>
+        <ion-list ng-repeat="dynamic in comments">
+            <ion-item class="item-avatar-left" href="#tab/surgery-video">
+                <img ng-src="http://medku.com{{dynamic.author.avatar}}">
+                    <h2>
+                        <div class="row  mk-sub-font">
+                            <div class="col col-20">{{dynamic.author.realname}}</div>
+                            <div class="col" style="text-align:right;">{{dynamic.created_at}}</div>
+                        </div>
+                    </h2>
+                    <p class="mk-sub-font">&nbsp;{{dynamic.content}}</p>
+                    </ion-item>
+        </ion-list>
+    </ion-content>
+  </ion-modal-view>

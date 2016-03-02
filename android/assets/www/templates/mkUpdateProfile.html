@@ -1,0 +1,47 @@
+
+    <ion-view view-title="修改资料" hide-nav-bar="false">  
+    
+      <ion-content class="padding">
+            <ion-list class="mk-logo-font">
+                <br/><br/>
+            </ion-list>
+        
+          <div class="list">
+          
+            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.username.$invalid&& authorizationForm.$submitted, 'no-errors' : authorizationForm.username.$valid&& authorizationForm.$submitted}">
+            <i class="icon ion-ios-person-outline button-large mk-font"></i>
+              <input type="text" name="username" ng-model="mkuser.username"
+              placeholder="请输入您的姓名" required>
+              <input type="hidden" ng-model="mkuser.phoneNum">
+            </label>
+         
+            
+            <label class="item item-input item-select">
+              <i class="icon ion-ios-flask-outline button-large mk-font"></i>
+
+              <select name="mkdept" id="mkdept" ng-model="mkuser.mkdept" required>
+            <option value="60">神经外科</option>
+            <option value="78">眼科</option>
+            <option value="79">耳鼻喉科</option>
+            <option value="80">口腔科</option>
+            <option value="63">心外科</option>
+            <option value="55">胸外科</option>
+            <option value="81">甲乳外科</option>
+            <option value="10">肝胆胰外科</option>
+            <option value="64">胃肠外科</option>
+            <option value="15">泌尿外科</option>
+            <option value="41">妇产科</option>
+            <option value="42">骨科</option>
+            <option value="82">心内科</option>
+            <option value="83">其他</option>
+    		  </select>
+            </label>      
+          </div>    
+          
+          <button class="button button-full button-mk" ng-click="updateProfile(mkuser);">
+            提交
+          </button>
+        
+      </ion-content>
+      
+    </ion-view>

@@ -1,0 +1,29 @@
+<ion-view title="推荐医师" class="gray" hide-tabs="true">
+  <ion-content>
+  
+  <ion-list ng-repeat="doctor in doctors">
+    <ion-item class="item-thumbnail-left" href="#" style="border-bottom:0.4px lightgray solid;">
+	  <img data-ng-src="http://medku.com{{doctor.avatar}}" data-placeholder-img="profile_large"> 
+      <div style="padding-left: 35px; color: darkgray;">
+        <h2>{{doctor.realname}}&nbsp;</h2>
+		<p>
+        <div class="row  mk-sub-font">
+          <div class="col">
+            <i class="icon icon-left ion-ios-medkit-outline"></i>
+            <span class="text">{{doctor.title}}</span>
+          </div>
+        </div>
+        <div class="row  mk-sub-font">
+            <div class="col">
+                <i class="icon icon-left ion-ios-location-outline"></i>
+                <span class="text">{{doctor.hospital}}</span>
+            </div>
+        </div>
+
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  </ion-content>
+</ion-view>

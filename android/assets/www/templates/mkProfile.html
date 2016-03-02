@@ -1,0 +1,114 @@
+
+    <ion-view view-title="" cache-view="false">  
+      <ion-content scroll="true">
+
+      <ion-list class="mk-profile-basic-bg">
+            <div class="row">
+                  <div class="col col-10"></div>
+                  <div class="col col-33">
+					  <img  class="mk-icon" data-ng-src="http://medku.com{{mkCurrentUser.avatar}}" data-placeholder-img="profile_large">
+				  </div>
+                  <div class="col"><h4  class="whiteColor">{{mkCurrentUser.realname}} <span class="whiteColor-smallFont">&nbsp;&nbsp;{{mkCurrentUser.title}}</span></h4>
+                                      <h6 class="whiteColor">{{mkCurrentUser.hospital}}  {{mkCurrentUser.department}}</h6>
+                                      <h6 class="whiteColor"><span class="orangeColor">0</span>&nbsp;&nbsp;关注&nbsp;&nbsp;&nbsp;&nbsp;<span class="orangeColor">0</span>&nbsp;&nbsp;粉丝</h6>
+                                      <br/>
+                  </div>
+            </div>
+      </ion-list>
+
+        <div class="row">
+          <div class="col mk_profile_col"  >
+              <div class="list list-inset mk_profile_list" onClick="window.location='#tab/uservideo/{{mkCurrentUser.id}}';">
+                    <div class="circle">
+                       <i class="col icon ion-ios-videocam-outline vertical-align"></i>
+                    </div>
+					<div class="mk-sub-font" style="cursor: pointer;" >
+					    我的视频
+					</div>
+              </div>
+          </div>
+         <div class="col mk_profile_col">
+             <div class="list list-inset mk_profile_list"  onClick="window.location='#tab/userdynamic/{{mkCurrentUser.id}}';">
+                   <div class="circle">
+                      <i class="col icon ion-ios-chatbubble-outline vertical-align"></i>
+                   </div>
+                    <div class="mk-sub-font">
+                      我的动态
+                   </div>
+             </div>
+         </div>
+          <div class="col mk_profile_col">
+              <div class="list list-inset mk_profile_list" onClick="window.location='#tab/usercomment/{{mkCurrentUser.id}}';">
+                    <div class="circle">
+                       <i class="col icon ion-ios-chatboxes-outline vertical-align"></i>
+                    </div>
+                     <div class="mk-sub-font">
+                       我的评论
+                    </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mk_profile_col">
+              <div class="list list-inset mk_profile_list" onClick="window.location='#tab/userviewhistory/{{mkCurrentUser.id}}';">
+                    <div class="circle">
+                       <i class="col icon ion-ios-eye-outline vertical-align"></i>
+                    </div>
+                     <div class="mk-sub-font">
+                      浏览记录
+                    </div>
+              </div>
+          </div>
+         <div class="col mk_profile_col">
+              <div class="list list-inset mk_profile_list"  onClick="window.location='#tab/userfavorite/{{mkCurrentUser.id}}';">
+                    <div class="circle">
+                       <i class="col icon ion-ios-heart-outline vertical-align"></i>
+                    </div>
+                     <div class="mk-sub-font">
+                       我的收藏
+                    </div>
+              </div>
+          </div>
+          <div class="col mk_profile_col">
+              <div class="list list-inset mk_profile_list"  ng-click="showInDev();">
+                    <div class="circle">
+                       <i class="col icon ion-ios-paper-outline vertical-align"></i>
+                    </div>
+                     <div class="mk-sub-font">
+                       我的病例
+                    </div>
+              </div>
+          </div>
+         
+        </div>
+ 
+ <div class="list">
+     
+     <a class="item item-icon-left item-icon-right" onClick="window.location='#tab/updateprofile/{{mkCurrentUser.id}}';">
+         <i class="icon ion-ios-gear-outline button button-clear button-mk"></i>
+         <div class="mk-profile-list-font">
+             编辑资料
+         </div>
+         <i class="icon ion-chevron-right icon-accessory"></i>
+     </a>
+     
+     <a class="item item-icon-left item-icon-right" ng-click="showInDev();">
+         <i class="icon ion-social-vimeo-outline button button-clear button-mk"></i>
+         <div class="mk-profile-list-font">
+             资格认证
+         </div>
+         <i class="icon ion-chevron-right icon-accessory"></i>
+     </a>
+     
+     <a class="item item-icon-left item-icon-right" href="#" ng-click="mkLogout();">
+         <i class="icon ion-ios-redo-outline button button-clear button-mk"></i>
+         <div class="mk-profile-list-font">退出</div>
+         <i class="icon ion-chevron-right icon-accessory"></i>
+     </a>
+     
+ </div>
+ 
+ 
+      </ion-content>
+      
+    </ion-view>
